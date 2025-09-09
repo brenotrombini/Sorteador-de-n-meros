@@ -3,6 +3,17 @@ function sortear(){
     let de = parseInt(document.getElementById('de').value);
     let ate = parseInt(document.getElementById('ate').value);
 
+     // Proteção 1: intervalo inválido
+    if (de > ate) {
+        alert('O valor "Do número" não deve ser maior que "Até o número"!');
+    }
+
+     // Proteção 2: quantidade maior que o intervalo
+    if (quantidade > (ate - de + 1)) {
+    alert('A quantidade de números não pode ser maior que o intervalo disponível!');
+}
+
+
     let sorteados = [];
 
     for (let i = 0; i < quantidade; i++) {
@@ -11,7 +22,7 @@ function sortear(){
         while (sorteados.includes(numero)){
             numero = obterNumeroAleatorio(de, ate);
         }
-
+        
         sorteados.push(numero);
     }
 
